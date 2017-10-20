@@ -53,12 +53,15 @@ function wrapperFunction() {
                 [res[3].id + ".", res[3].product_name, "$" + res[3].price],
                 [res[4].id + ".", res[4].product_name, "$" + res[4].price],
                 [res[5].id + ".", res[5].product_name, "$" + res[5].price],
-                [res[6].id + ".", res[6].product_name, "$" + res[6].price]
+                [res[6].id + ".", res[6].product_name, "$" + res[6].price],
+                [res[7].id + ".", res[7].product_name, "$" + res[7].price],
+                [res[8].id + ".", res[8].product_name, "$" + res[8].price],
+                [res[9].id + ".", res[9].product_name, "$" + res[9].price]
             ];
             output = table(data, config);
-            console.log("     -----------------------")
-            console.log("    ---- Available Items ----")
-            console.log("     -----------------------")
+            console.log("            -----------------------")
+            console.log("           ---- Available Items ----")
+            console.log("            -----------------------")
 
             console.log(output);
 
@@ -120,15 +123,10 @@ function wrapperFunction() {
                         id: chosenItem.id
                     }])
                 } else {
-                    console.log("Insufficient Quantity! There are only " + chosenItem.stock_quantity + " " + chosenItem.product_name + " left!")
+                    console.log("Insufficient Quantity! There are only " + chosenItem.stock_quantity + " of those left!")
                 }
                 anotherItem()
             })
-
-            if (answer.product === "No") {
-                console.log("Give me your money!")
-                connection.end();
-            }
         }
 
         function anotherItem() {
@@ -141,7 +139,7 @@ function wrapperFunction() {
                 if (another.another === "Yes") {
                     itemSelection();
                 } else {
-                    console.log("Give me your money!")
+                    console.log("Thanks for shopping at bAmazon!")
                     connection.end();
                 }
             })
